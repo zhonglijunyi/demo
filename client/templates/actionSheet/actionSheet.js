@@ -28,8 +28,15 @@ var toggleIonActionSheet = function() {
         console.log('Moved!');
       }
       if (index === 2) {
-        console.log('Exit app!');
-        navigator.app && navigator.app.exitApp && navigator.app.exitApp();
+        IonPopup.confirm({
+          title: 'Exit hint?',
+          template: 'Are you sure to exit app!?',
+          onOk: function() {
+            console.log('Exit app!');
+            navigator.app && navigator.app.exitApp && navigator.app.exitApp();
+          },
+          onCancel: function() {}
+        });
       }
       IonActionSheet.isShown = false;
       return true;
