@@ -1,12 +1,12 @@
 
-var isShown = false;
+IonActionSheet.isShown = false;
 var toggleIonActionSheet = function() {
-  if (isShown) {
-    isShown = false;
+  if (IonActionSheet.isShown) {
+    IonActionSheet.isShown = false;
     IonActionSheet.close();
     return;
   }
-  isShown = true;
+  IonActionSheet.isShown = true;
   IonActionSheet.show({
     titleText: 'ActionSheet Example',
     buttons: [
@@ -18,7 +18,7 @@ var toggleIonActionSheet = function() {
     cancelText: 'Cancel',
     cancel: function() {
       console.log('Cancelled!');
-      isShown = false;
+      IonActionSheet.isShown = false;
     },
     buttonClicked: function(index) {
       if (index === 0) {
@@ -31,12 +31,12 @@ var toggleIonActionSheet = function() {
         console.log('Exit app!');
         navigator.app && navigator.app.exitApp && navigator.app.exitApp();
       }
-      isShown = false;
+      IonActionSheet.isShown = false;
       return true;
     },
     destructiveButtonClicked: function() {
       console.log('Destructive Action!');
-      isShown = false;
+      IonActionSheet.isShown = false;
       return true;
     }
   });
