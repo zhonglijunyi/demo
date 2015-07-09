@@ -9,6 +9,15 @@ if (Meteor.isCordova) {
       IonActionSheet.close();
       return;
     }
+    var curRouter = Router.current();
+    var curRouterName = curRouter.route.getName();
+    console.log("curRouterName is: "+curRouterName);
+    if (curRouterName==="index") {
+      if (window.confirm('Are you sure to exit app!')) {
+        console.log('Exit app!');
+        navigator.app && navigator.app.exitApp && navigator.app.exitApp();
+      }
+    }
   };
   document.addEventListener("backbutton", onBackButtonPressed, false);
 }
